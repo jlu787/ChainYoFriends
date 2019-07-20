@@ -23,25 +23,31 @@ public class DumbFukChainManager : MonoBehaviour
         {
             enableBunny(i, false);
         }
+        bunnyChain[currentChainLength - 1].GetComponent<BoxCollider2D>().enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentChainLength == bunnyChain.Count)
-            return;
+        //if (currentChainLength == bunnyChain.Count)
+        //    return;
 
-        counter += Time.deltaTime;
-        if (counter >= 1f/frequency)
-        {
-            counter = 0f;
-            AddToChain();
-        }
+        //counter += Time.deltaTime;
+        //if (counter >= 1f/frequency)
+        //{
+        //    counter = 0f;
+        //    AddToChain();
+        //}
     }
 
-    void AddToChain()
+
+    public void AddToChain()
     {
         enableBunny(currentChainLength, true);
+        BoxCollider2D box = bunnyChain[currentChainLength-1].GetComponent<BoxCollider2D>();
+        box.enabled = false;
+        BoxCollider2D box2 = bunnyChain[currentChainLength].GetComponent<BoxCollider2D>();
+        box2.enabled = true;
         currentChainLength++;
     }
 
@@ -51,5 +57,6 @@ public class DumbFukChainManager : MonoBehaviour
         GameObject bunny = bunnyChain[index];
         SpriteRenderer render = bunny.GetComponent<SpriteRenderer>();
         render.enabled = state;
+
     }
 }
