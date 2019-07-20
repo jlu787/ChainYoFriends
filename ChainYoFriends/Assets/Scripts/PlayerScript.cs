@@ -30,39 +30,23 @@ public class PlayerScript : MonoBehaviour
         currentState = GamePad.GetState(playerIndex);
         if (previousState.Buttons.A == ButtonState.Pressed && currentState.Buttons.A == ButtonState.Released)
         {
-            if (startFixed)
-            {
-                //linkStart.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                //linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                linkStart.GetComponent<PlayerControllerMovement>().enabled = true;
-                linkEnd.GetComponent<PlayerControllerMovement>().enabled = false;
-                startFixed = false;
-            }
-            else
-            {
-                //linkStart.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                //linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                linkStart.GetComponent<PlayerControllerMovement>().enabled = false;
-                linkEnd.GetComponent<PlayerControllerMovement>().enabled = true;
-                startFixed = true;
-            }
+            startFixed = !startFixed;
         }
 
-        //if (Input.GetKeyDown("space"))
-        //{
-        //    if (startFixed)
-        //    {
-        //        linkStart.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        //        linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        //        startFixed = false;
-        //    }
-        //    else
-        //    {
-        //        linkStart.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        //        linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        //        startFixed = true;
-        //    }
-        //}
+        if (startFixed)
+        {
+            //linkStart.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            //linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            linkStart.GetComponent<PlayerControllerMovement>().enabled = true;
+            linkEnd.GetComponent<PlayerControllerMovement>().enabled = false;
+        }
+        else
+        {
+            //linkStart.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            //linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            linkStart.GetComponent<PlayerControllerMovement>().enabled = false;
+            linkEnd.GetComponent<PlayerControllerMovement>().enabled = true;
+        }
 
     }
 }
