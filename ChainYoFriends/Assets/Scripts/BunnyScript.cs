@@ -21,7 +21,7 @@ public class BunnyScript : MonoBehaviour
         rb.AddForce(Random.insideUnitCircle.normalized * wanderForce);
         if(rb.velocity.magnitude >= maxSpeed)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.velocity = rb.velocity.normalized * maxSpeed / 2;
         }
     }
 

@@ -30,8 +30,8 @@ public class AISpawn : MonoBehaviour
 
     void SpawnBunny()
     {
-        int spawnPointX = Random.Range(-10, 10);
-        int spawnPointY = Random.Range(-5, 5);
+        int spawnPointX = Random.Range(-7, 7);
+        int spawnPointY = Random.Range(-3, 4);
         Vector3 spawnPos = new Vector3(spawnPointX, spawnPointY, 0);
 
         Instantiate(bunnyPrefab, spawnPos, Quaternion.identity);
