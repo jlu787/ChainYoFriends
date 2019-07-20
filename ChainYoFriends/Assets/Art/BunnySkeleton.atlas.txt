@@ -1,0 +1,69 @@
+
+BunnySkeleton.png
+size: 4096,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BunnySlices/slice1
+  rotate: false
+  xy: 1435, 1317
+  size: 523, 540
+  orig: 523, 540
+  offset: 0, 0
+  index: -1
+BunnySlices/slice2
+  rotate: false
+  xy: 1431, 32
+  size: 538, 884
+  orig: 538, 884
+  offset: 0, 0
+  index: -1
+BunnySlices/slice3
+  rotate: false
+  xy: 2, 47
+  size: 526, 1810
+  orig: 526, 1810
+  offset: 0, 0
+  index: -1
+BunnySlices/slice4
+  rotate: true
+  xy: 530, 2
+  size: 914, 899
+  orig: 914, 899
+  offset: 0, 0
+  index: -1
+BunnySlices/slice5
+  rotate: true
+  xy: 2849, 71
+  size: 538, 884
+  orig: 538, 884
+  offset: 0, 0
+  index: -1
+BunnySlices/slice6
+  rotate: true
+  xy: 1971, 1240
+  size: 617, 2098
+  orig: 617, 2098
+  offset: 0, 0
+  index: -1
+BunnySlices/slice7
+  rotate: true
+  xy: 530, 918
+  size: 939, 903
+  orig: 939, 903
+  offset: 0, 0
+  index: -1
+BunnySlices/slice8
+  rotate: true
+  xy: 1971, 27
+  size: 582, 876
+  orig: 582, 876
+  offset: 0, 0
+  index: -1
+BunnySlices/slice9
+  rotate: true
+  xy: 1971, 611
+  size: 627, 2093
+  orig: 627, 2093
+  offset: 0, 0
+  index: -1
