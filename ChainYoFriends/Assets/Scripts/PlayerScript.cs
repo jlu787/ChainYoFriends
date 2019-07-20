@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
 {
     public GameObject linkStart;
     public GameObject linkEnd;
+    public BoxCollider2D boxStart;
+    public BoxCollider2D boxEnd;
 
     public PlayerIndex playerIndex = PlayerIndex.One;
 
@@ -36,6 +38,9 @@ public class PlayerScript : MonoBehaviour
                 //linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 linkStart.GetComponent<PlayerControllerMovement>().enabled = true;
                 linkEnd.GetComponent<PlayerControllerMovement>().enabled = false;
+                //boxStart.enabled = false;
+                //boxEnd.enabled = true;
+
                 startFixed = false;
             }
             else
@@ -44,6 +49,9 @@ public class PlayerScript : MonoBehaviour
                 //linkEnd.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 linkStart.GetComponent<PlayerControllerMovement>().enabled = false;
                 linkEnd.GetComponent<PlayerControllerMovement>().enabled = true;
+                //boxStart.enabled = true;
+                //boxEnd.enabled = false;
+
                 startFixed = true;
             }
         }
