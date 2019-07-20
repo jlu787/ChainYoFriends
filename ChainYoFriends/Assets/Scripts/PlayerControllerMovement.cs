@@ -33,9 +33,9 @@ public class PlayerControllerMovement : MonoBehaviour
         // Set vibration according to triggers
         //GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
         float triggers = state.Triggers.Left- state.Triggers.Right;
-        Debug.Log(triggers);
-        Debug.Log(rigidBodyAttachedToPlayerInGameObject.rotation);
-        Debug.Log(rigidBodyAttachedToPlayerInGameObject.rotation + triggers * revSpeed * Time.fixedDeltaTime);
+        //Debug.Log(triggers);
+        //Debug.Log(rigidBodyAttachedToPlayerInGameObject.rotation);
+        //Debug.Log(rigidBodyAttachedToPlayerInGameObject.rotation + triggers * revSpeed * Time.fixedDeltaTime);
         rigidBodyAttachedToPlayerInGameObject.MoveRotation(rigidBodyAttachedToPlayerInGameObject.rotation + triggers * revSpeed * Time.fixedDeltaTime);
     }
 
