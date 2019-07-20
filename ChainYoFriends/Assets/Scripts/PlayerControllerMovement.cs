@@ -15,6 +15,7 @@ public class PlayerControllerMovement : MonoBehaviour
     bool playerIndexSet = false;
     public PlayerIndex playerIndex = PlayerIndex.One;
     public float playerSpeed = 10f;
+    public float revSpeed = 50f;
     GamePadState state;
     GamePadState prevState;
     private Rigidbody2D rigidBodyAttachedToPlayerInGameObject;
@@ -30,7 +31,12 @@ public class PlayerControllerMovement : MonoBehaviour
     {
         // SetVibration should be sent in a slower rate.
         // Set vibration according to triggers
-        GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
+        //GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
+        float triggers = state.Triggers.Left- state.Triggers.Right;
+        Debug.Log(triggers);
+        Debug.Log(rigidBodyAttachedToPlayerInGameObject.rotation);
+        Debug.Log(rigidBodyAttachedToPlayerInGameObject.rotation + triggers * revSpeed * Time.fixedDeltaTime);
+        rigidBodyAttachedToPlayerInGameObject.MoveRotation(rigidBodyAttachedToPlayerInGameObject.rotation + triggers * revSpeed * Time.fixedDeltaTime);
     }
 
     // Update is called once per frame
@@ -63,7 +69,7 @@ public class PlayerControllerMovement : MonoBehaviour
         //}
         //// Detect if a button was released this frame
         //if (prevState.Buttons.A == ButtonState.Pressed && state.Buttons.A == ButtonState.Released)
-        //{
+        //
         //    GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         //}
 
@@ -76,6 +82,33 @@ public class PlayerControllerMovement : MonoBehaviour
         movementVector = movementVector * playerSpeed * Time.deltaTime;
 
         rigidBodyAttachedToPlayerInGameObject.velocity = movementVector;
+
+        //Vector2 lookVector = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
+        //float angle = Mathf.Atan2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
+
+        //i
+
+        //Quaternion angles = Quaternion.LookRotation(new Vector3(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y, 0));
+        //Vector3 whateveryouwanttocallit = angles.eulerAngles;
+
+        //Quaternion.Euler(0.0f, state.ThumbSticks.Left.X * 25.0f * Time.deltaTime, 0.0f);
+
+        //Debug.Log(whateveryouwanttocallit);
+        //Debug.Log(Quaternion.Euler(0.0f, state.ThumbSticks.Left.X * 25.0f * Time.deltaTime, 0.0f));
+        //Vector2 rightStick = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
+        //float angle2 = Vector3.Angle(new Vector3(0.0f, 1.0f, 0.0f), new Vector3(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y, 0.0f));
+        //if (state.ThumbSticks.Right.X < 0.0f)
+        //{
+        //    Debug.Log("IN THIS BITCH");
+        //    angle2 = 360 - angle2;
+        //}
+        //Debug.Log(angle2);
+        //Debug.Log(state.ThumbSticks.Right.X);
+        //Debug.Log(state.ThumbSticks.Right.Y);
+        //if (rightStick.magnitude > 0.5)
+        //{
+        //    rigidBodyAttachedToPlayerInGameObject.rotation = angle2;
+        //}
     }
 
     //void OnGUI()

@@ -161,8 +161,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 140
+    m_LowerAngle: -40
+    m_UpperAngle: 40
 --- !u!50 &331875664
 Rigidbody2D:
   serializedVersion: 4
@@ -339,8 +339,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 140
+    m_LowerAngle: -40
+    m_UpperAngle: 40
 --- !u!50 &1229501530
 Rigidbody2D:
   serializedVersion: 4
@@ -678,7 +678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  playerSpeed: 100
+  playerSpeed: 150
+  revSpeed: 100
 --- !u!1 &2121003336
 GameObject:
   m_ObjectHideFlags: 0
