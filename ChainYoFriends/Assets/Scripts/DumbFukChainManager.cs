@@ -55,6 +55,7 @@ public class DumbFukChainManager : MonoBehaviour
         {
             RemoveFromChain();
         }
+    }
 
     public void AddToChain()
     {
