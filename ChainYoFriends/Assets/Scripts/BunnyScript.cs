@@ -6,15 +6,18 @@ using Spine.Unity;
 
 public class BunnyScript : MonoBehaviour
 {
+    public BunnyHealth Health { get; set; } = BunnyHealth.Bunny;
+    
     //public float circleDistance = 3.0f;
     //public float circleRadius = 1.0f;
     private Rigidbody2D rb;
     public float wanderForce = 2.0f;
     public float maxSpeed = 3.0f;
-    SkeletonAnimation skeleton;
-    float wanderTimer;
-    float wanderSpeed;
-    Vector2 wanderPoint;
+    private SkeletonAnimation skeleton;
+    private float wanderTimer;
+    private float wanderSpeed;
+    private Vector2 wanderPoint;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,46 @@ public class BunnyScript : MonoBehaviour
         wanderTimer = 0.0f;
         wanderSpeed = 1.0f;
     }
+
+    public void Hurt()
+    {
+        if (Health == BunnyHealth.DeadBunny)
+        {
+            Destroy(gameObject);
+        }
+
+        Health--;
+        SetSkin();
+    }
+
+    public void Heal()
+    {
+        Health = BunnyHealth.Bunny;
+        SetSkin();
+
+    }
+
+    private void SetSkin()
+    {
+        Skeleton skeleton = GetComponentInChildren<SkeletonAnimation>().skeleton;
+        switch (Health)
+        {
+            case BunnyHealth.Bunny:
+                skeleton.SetSkin("BunnyAlive");
+                break;
+            case BunnyHealth.ZomBunny:
+                skeleton.SetSkin("BunnyGore");
+                break;
+            case BunnyHealth.DeadBunny:
+                skeleton.SetSkin("BunnyBones");
+                break;
+            default:
+                Debug.LogError("OOPS :(");
+                break;
+        }
+    }
+
+    
 
     private void FixedUpdate()
     {

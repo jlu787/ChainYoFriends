@@ -6,29 +6,23 @@ using UnityEngine;
 
 public class BunnyCollisionDetection : MonoBehaviour
 {
-    private enum BunnyHealth
-    {
-        Bunny = 2,
-        ZomBunny = 1,
-        DeadBunny = 0
-    };
-
-    private BunnyHealth _healthLevel = BunnyHealth.Bunny;
+    public BunnyHealth HealthLevel { get; set; } = BunnyHealth.Bunny;
     private DumbFukChainManager _manager;
 
     public void Hurt()
     {
-        if (_healthLevel == BunnyHealth.DeadBunny)
+        if (HealthLevel == BunnyHealth.DeadBunny)
         {
             _manager.Kill(gameObject);
         }
-        _healthLevel = _healthLevel - 1;
+
+        HealthLevel--;
         SetSkin();
     }
 
     public void Heal()
     {
-        _healthLevel = BunnyHealth.Bunny;
+        HealthLevel = BunnyHealth.Bunny;
         SetSkin();
 
     }
@@ -36,7 +30,7 @@ public class BunnyCollisionDetection : MonoBehaviour
     public void SetSkin()
     {
         Skeleton skeleton = GetComponentInChildren<SkeletonAnimation>().skeleton;
-        switch (_healthLevel)
+        switch (HealthLevel)
         {
             case BunnyHealth.Bunny:
                 skeleton.SetSkin("BunnyAlive");
@@ -73,7 +67,7 @@ public class BunnyCollisionDetection : MonoBehaviour
         {
             Destroy(col.gameObject);
             Debug.Log("caugh.");
-            transform.parent.gameObject.GetComponent<DumbFukChainManager>().AddToChain();
+            transform.parent.gameObject.GetComponent<DumbFukChainManager>().AddToChain(col.gameObject.GetComponent<BunnyScript>().Health);
         }
     }
 }
