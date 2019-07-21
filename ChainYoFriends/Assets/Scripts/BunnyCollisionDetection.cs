@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,7 +30,6 @@ public class BunnyCollisionDetection : MonoBehaviour
         if (_manager == null)
             Debug.LogError("Chain Manager not found");
     }
-    
 
     void OnTriggerEnter2D(Collider2D col)
     {
