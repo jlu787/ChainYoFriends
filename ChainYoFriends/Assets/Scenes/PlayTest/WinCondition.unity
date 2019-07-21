@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6eb534368feb94cb1e05a09ec8db0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundDuration: 90
+  roundDuration: 20
   timerText: {fileID: 1833944503}
   playerOneScore: {fileID: 1839961477}
   playerTwoScore: {fileID: 1209574773}

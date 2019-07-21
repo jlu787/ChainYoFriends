@@ -20,9 +20,56 @@ public class GameManagerScript : MonoBehaviour
     public GameObject gameEndPanel;
     public TextMeshProUGUI outcomeText;
 
+    private bool gameHasEnded = false;
+
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
+    }
+
+    public void endGame()
+    {
+        gameHasEnded = true;
+        timerText.text = "GAME END";
+        gameEndPanel.SetActive(true);
+        if (playerOneDFCM.currentChainLength > playerTwoDFCM.currentChainLength)
+        {
+            outcomeText.text = "Player One Wins!";
+        }
+        else if (playerOneDFCM.currentChainLength < playerTwoDFCM.currentChainLength)
+        {
+            outcomeText.text = "Player Two Wins!";
+
+        }
+        else
+        {
+            outcomeText.text = "It's a draw!";
+
+        }
+    }
+
+    public void checkForLastPlayerAlive()
+    {
+        if (playerOneDFCM.currentChainLength == 0 || playerTwoDFCM.currentChainLength == 0)
+        {
+            endGame();
+        }
+    }
+
+    public void renderTimerAndScores()
+    {
+        if (roundDuration > 0)
+        {
+            roundDuration -= Time.deltaTime;
+            timeLeft = Mathf.Round(roundDuration);
+            timerText.text = timeLeft.ToString("0");
+            playerOneScore.text = playerOneDFCM.currentChainLength.ToString();
+            playerTwoScore.text = playerTwoDFCM.currentChainLength.ToString();
+        }
+        else
+        {
+            endGame();
+        }
     }
 
     // Start is called before the first frame update
@@ -34,32 +81,13 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (roundDuration > 0)
+        if (!gameHasEnded)
         {
-            roundDuration -= Time.deltaTime;
-            timeLeft = Mathf.Round(roundDuration);
-            timerText.text = timeLeft.ToString("0");
-            playerOneScore.text = playerOneDFCM.currentChainLength.ToString();
-            playerTwoScore.text = playerTwoDFCM.currentChainLength.ToString();
-        } else
-        {
-            timerText.text = "GAME END";
-            gameEndPanel.SetActive(true);
-            if (playerOneDFCM.currentChainLength > playerTwoDFCM.currentChainLength)
-            {
-                outcomeText.text = "Player One Wins!";
-            }
-            else if (playerOneDFCM.currentChainLength < playerTwoDFCM.currentChainLength)
-            {
-                outcomeText.text = "Player Two Wins!";
-
-            }
-            else
-            {
-                outcomeText.text = "It's a draw!";
-
-            }
+            renderTimerAndScores();
+            checkForLastPlayerAlive();
         }
+
+
+        
     }
 }
