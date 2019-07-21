@@ -18,7 +18,7 @@ public class ChainsawCollisionsDetection : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Bunny"))
+        if (col.gameObject.layer == LayerMask.NameToLayer("BunnyChain"))
         {
             Debug.Log("SAWED A BUNNY");
             col.gameObject.GetComponent<BunnyCollisionDetection>().Hurt();

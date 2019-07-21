@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2650626922375502584}
   - component: {fileID: 2650626922375502587}
-  - component: {fileID: 2650626922375502586}
   - component: {fileID: 2650626922375502581}
   - component: {fileID: 2650626922375502580}
   - component: {fileID: 2575278895319653781}
+  - component: {fileID: 4755915423413060679}
   m_Layer: 9
   m_Name: Chainsaw
   m_TagString: Untagged
@@ -83,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2650626922375502586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2650626922375502583}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 110a3e7c56d7ed4459a19f724294ed04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wanderForce: 3
-  maxSpeed: 3
 --- !u!61 &2650626922375502581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +145,15 @@ MonoBehaviour:
   pos1: {x: 0, y: 0, z: 0}
   pos2: {x: 0, y: 0, z: 0}
   speed: 5
+--- !u!114 &4755915423413060679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2650626922375502583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2923fd800e1aa9468e366a3cbf94560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

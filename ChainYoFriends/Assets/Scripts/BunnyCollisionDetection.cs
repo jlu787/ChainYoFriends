@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Spine.Unity;
+using Spine;
 using UnityEngine;
 
 public class BunnyCollisionDetection : MonoBehaviour
@@ -21,7 +23,36 @@ public class BunnyCollisionDetection : MonoBehaviour
             _manager.Kill(gameObject);
         }
         _healthLevel = _healthLevel - 1;
+        SetSkin();
     }
+
+    public void Heal()
+    {
+        _healthLevel = BunnyHealth.Bunny;
+        SetSkin();
+
+    }
+
+    public void SetSkin()
+    {
+        Skeleton skeleton = GetComponentInChildren<SkeletonAnimation>().skeleton;
+        switch (_healthLevel)
+        {
+            case BunnyHealth.Bunny:
+                skeleton.SetSkin("BunnyAlive");
+                break;
+            case BunnyHealth.ZomBunny:
+                skeleton.SetSkin("BunnyGore");
+                break;
+            case BunnyHealth.DeadBunny:
+                skeleton.SetSkin("BunnyBones");
+                break;
+             default:
+                 Debug.LogError("OOPS :(");
+                 break;
+        }
+    }
+    
     
     // Start is called before the first frame update
     void Start()

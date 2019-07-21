@@ -25,16 +25,16 @@ public class DumbFukChainManager : MonoBehaviour
         }
         SetLeader();
     }
-
-    void Update()
-    {
-        counter += Time.deltaTime;
-        if (counter >= 1f / frequency)
-        {
-            counter = 0f;
-            bunnyChain[6].GetComponent<BunnyCollisionDetection>().Hurt();
-        }
-    }
+//
+//    void Update()
+//    {
+//        counter += Time.deltaTime;
+//        if (counter >= 1f / frequency)
+//        {
+//            counter = 0f;
+//            bunnyChain[6].GetComponent<BunnyCollisionDetection>().Hurt();
+//        }
+//    }
 
     public void Kill(GameObject bunny)
     {
@@ -59,6 +59,9 @@ public class DumbFukChainManager : MonoBehaviour
 
     public void AddToChain()
     {
+        if (currentChainLength == bunnyChain.Count)
+            return;
+        
         enableBunny(currentChainLength, true);
         currentChainLength++;
         SetLeader();
@@ -66,6 +69,9 @@ public class DumbFukChainManager : MonoBehaviour
 
     public void RemoveFromChain()
     {
+        if (currentChainLength == 0)
+            return;
+        
         enableBunny(currentChainLength - 1, false);
         currentChainLength--;
         SetLeader();
@@ -76,14 +82,17 @@ public class DumbFukChainManager : MonoBehaviour
         for (int i = 0; i < bunnyChain.Count; i++)
         {
             bunnyChain[i].tag = "Link";
+            bunnyChain[i].layer = LayerMask.NameToLayer("BunnyChain");
         }
         
 
         bunnyChain[currentChainLength - 1].tag = "Leader";
+        bunnyChain[currentChainLength - 1].layer = LayerMask.NameToLayer("BunnyChain");
 
         for (int i = currentChainLength; i < bunnyChain.Count; i++)
         {
             bunnyChain[i].layer = LayerMask.NameToLayer("Default");
+            bunnyChain[i].GetComponent<BunnyCollisionDetection>().Heal();
         }
     }
     
@@ -92,7 +101,7 @@ public class DumbFukChainManager : MonoBehaviour
     {
         Debug.Log("Enabling bunny: " + index);
         GameObject bunny = bunnyChain[index];
-        SpriteRenderer render = bunny.GetComponent<SpriteRenderer>();
+        MeshRenderer render = bunny.GetComponentInChildren<MeshRenderer>();
         render.enabled = state;
 
     }
