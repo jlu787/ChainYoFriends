@@ -30,10 +30,18 @@ public class AISpawn : MonoBehaviour
 
     void SpawnBunny()
     {
-        int spawnPointX = Random.Range(-7, 7);
-        int spawnPointY = Random.Range(-3, 4);
-        Vector3 spawnPos = new Vector3(spawnPointX, spawnPointY, 0);
+        Vector3 v3Pos1;
+        float randCheckLR = Random.Range(0, 1.0f);
+        if (randCheckLR <= 0.5f)
+        {
+            v3Pos1 = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, Random.Range(0, 1.0f), 0));
+        }
+        else
+        {
+            v3Pos1 = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(-0.1f, 1.1f), 1.1f, 0));
+        }
+        v3Pos1.z = 0.0f;
 
-        Instantiate(bunnyPrefab, spawnPos, Quaternion.identity);
+        Instantiate(bunnyPrefab, v3Pos1, Quaternion.identity);
     }
 }
