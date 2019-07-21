@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayTest/StartScreen.unity
     guid: f7c8add04466dde4f91c35502f9aa7b5
   - enabled: 1
-    path: Assets/Scenes/PlayTest/WinCondition.unity
-    guid: b8f0d628506df4949aa6fb7049456aa5
+    path: Assets/Scenes/PlayTestFINAL/WinCondition.unity
+    guid: 04b74cb6ac45e0347830a0081137c66d
   m_configObjects: {}

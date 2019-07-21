@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManagerScript : MonoBehaviour
@@ -10,13 +11,15 @@ public class GameManagerScript : MonoBehaviour
     public float roundDuration;
     private float timeLeft;
 
-    public TextMeshProUGUI timerText;
+    public Text timerText;
 
-    public List<TextMeshProUGUI> playerScore;
+    public List<Text> playerScore;
     public List<DumbFukChainManager> chainManagers;
 
     public GameObject gameEndPanel;
-    public TextMeshProUGUI outcomeText;
+    public Text outcomeText;
+
+    private List<bool> enableScore;
 
     private bool gameHasEnded = false;
 
@@ -28,7 +31,7 @@ public class GameManagerScript : MonoBehaviour
     public void endGame()
     {
         gameHasEnded = true;
-        timerText.text = "GAME END";
+        timerText.text = "";
         gameEndPanel.SetActive(true);
 
         int maxValue = 0;
@@ -88,7 +91,11 @@ public class GameManagerScript : MonoBehaviour
 
             for (int i = 0; i < chainManagers.Count; i++)
             {
-                playerScore[i].text = "Player " + i.ToString() + ": " + chainManagers[i].currentChainLength.ToString();
+                if (!enableScore[i])
+                    continue;
+                if (chainManagers[i].currentChainLength == 0)
+                    enableScore[i] = false;
+                playerScore[i].text = "Player " + (i + 1).ToString() + ": " + chainManagers[i].currentChainLength.ToString();
             }
         }
         else
@@ -100,7 +107,8 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        enableScore = new List<bool>() {true, true, true, true};
+
     }
 
     // Update is called once per frame
