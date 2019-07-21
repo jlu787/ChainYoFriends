@@ -11,11 +11,9 @@ public class GameManagerScript : MonoBehaviour
     private float timeLeft;
 
     public TextMeshProUGUI timerText;
-    public TextMeshProUGUI playerOneScore;
-    public TextMeshProUGUI playerTwoScore;
 
-    public DumbFukChainManager playerOneDFCM;
-    public DumbFukChainManager playerTwoDFCM;
+    public List<TextMeshProUGUI> playerScore;
+    public List<DumbFukChainManager> chainManagers;
 
     public GameObject gameEndPanel;
     public TextMeshProUGUI outcomeText;
@@ -32,28 +30,52 @@ public class GameManagerScript : MonoBehaviour
         gameHasEnded = true;
         timerText.text = "GAME END";
         gameEndPanel.SetActive(true);
-        if (playerOneDFCM.currentChainLength > playerTwoDFCM.currentChainLength)
-        {
-            outcomeText.text = "Player One Wins!";
-        }
-        else if (playerOneDFCM.currentChainLength < playerTwoDFCM.currentChainLength)
-        {
-            outcomeText.text = "Player Two Wins!";
 
-        }
-        else
+        int maxValue = 0;
+        int maxIndex = -1;
+        for (int i = 0; i < chainManagers.Count; i++)
         {
-            outcomeText.text = "It's a draw!";
+            if (chainManagers[i].currentChainLength > maxValue)
+            {
+                maxIndex = i;
+                maxValue = chainManagers[i].currentChainLength;
+            }
+        }
 
+        switch (maxIndex)
+        {
+            case 0:
+                outcomeText.text = "Player One Wins!";
+                break;
+            case 1:
+                outcomeText.text = "Player Two Wins!";
+                break;
+            case 2:
+                outcomeText.text = "Player Three Wins!";
+                break;
+            case 3:
+                outcomeText.text = "Player Four Wins!";
+                break;
+            case 4:
+                outcomeText.text = "It's a draw!";
+                break;
+            default:
+                outcomeText.text = "haha..";
+                break;
         }
     }
 
     public void checkForLastPlayerAlive()
     {
-        if (playerOneDFCM.currentChainLength == 0 || playerTwoDFCM.currentChainLength == 0)
+        foreach (DumbFukChainManager dfm in chainManagers)
         {
-            endGame();
+            if (dfm.currentChainLength != 0)
+            {
+                return;
+            }
         }
+
+        endGame();
     }
 
     public void renderTimerAndScores()
@@ -63,8 +85,11 @@ public class GameManagerScript : MonoBehaviour
             roundDuration -= Time.deltaTime;
             timeLeft = Mathf.Round(roundDuration);
             timerText.text = timeLeft.ToString("0");
-            playerOneScore.text = playerOneDFCM.currentChainLength.ToString();
-            playerTwoScore.text = playerTwoDFCM.currentChainLength.ToString();
+
+            for (int i = 0; i < chainManagers.Count; i++)
+            {
+                playerScore[i].text = "Player " + i.ToString() + ": " + chainManagers[i].currentChainLength.ToString();
+            }
         }
         else
         {
