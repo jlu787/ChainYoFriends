@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManagerScript : MonoBehaviour
@@ -10,15 +11,15 @@ public class GameManagerScript : MonoBehaviour
     public float roundDuration;
     private float timeLeft;
 
-    public TextMeshProUGUI timerText;
-    public TextMeshProUGUI playerOneScore;
-    public TextMeshProUGUI playerTwoScore;
+    public Text timerText;
+    public Text playerOneScore;
+    public Text playerTwoScore;
 
     public DumbFukChainManager playerOneDFCM;
     public DumbFukChainManager playerTwoDFCM;
 
     public GameObject gameEndPanel;
-    public TextMeshProUGUI outcomeText;
+    public Text outcomeText;
 
     private bool gameHasEnded = false;
 
@@ -30,7 +31,7 @@ public class GameManagerScript : MonoBehaviour
     public void endGame()
     {
         gameHasEnded = true;
-        timerText.text = "GAME END";
+        timerText.text = "";
         gameEndPanel.SetActive(true);
         if (playerOneDFCM.currentChainLength > playerTwoDFCM.currentChainLength)
         {
