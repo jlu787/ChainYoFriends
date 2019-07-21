@@ -6,6 +6,8 @@ public class ChainsawSpawner : MonoBehaviour
 {
     public float spawnDelay = 3.0f;
     private float spawnTimer = 0.0f;
+    private float counter = 0.0f;
+    public float delayTime = 15.0f;
 
     public GameObject Chainsaw;
 
@@ -21,9 +23,19 @@ public class ChainsawSpawner : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnDelay)
         {
-            Debug.Log("SPAWN!!!");
-            //spawn a chainsaw
-            SpawnChainsaw();
+            if (counter < delayTime)
+            {
+                Debug.Log("Yikes");
+                counter = counter + spawnDelay;
+                Debug.Log(counter);
+            }
+            else
+            {
+                Debug.Log("Chainsaww!!!");
+                //spawn a chainsaw
+                SpawnChainsaw();
+
+            }
             spawnTimer = 0.0f;
         }
     }
