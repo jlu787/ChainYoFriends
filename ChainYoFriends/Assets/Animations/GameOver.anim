@@ -30,18 +30,27 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.4
-        value: {x: 0.606414, y: 4.3829193, z: 8.629106}
-        inSlope: {x: 1.4285715, y: -24.33642, z: -1.5475584}
-        outSlope: {x: 1.4285715, y: -24.33642, z: -1.5475584}
+        value: {x: 0.606414, y: 4.3829193, z: 8.629104}
+        inSlope: {x: 1.4285715, y: -24.33642, z: -1.547541}
+        outSlope: {x: 1.4285715, y: -24.33642, z: -1.547541}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.43333334
+        value: {x: 0.6575364, y: 3.3344858, z: 8.378803}
+        inSlope: {x: 1.6240128, y: -38.890785, z: -13.780886}
+        outSlope: {x: 1.6240128, y: -38.890785, z: -13.780886}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.48333332
-        value: {x: 0.7427458, y: 0.7718929, z: 7.1611767}
-        inSlope: {x: 1.751161, y: -64.33563, z: -35.62256}
-        outSlope: {x: 1.751161, y: -64.33563, z: -35.62256}
+        value: {x: 0.7427458, y: 0.7718929, z: 7.1611757}
+        inSlope: {x: 1.751161, y: -64.33563, z: -35.62254}
+        outSlope: {x: 1.751161, y: -64.33563, z: -35.62254}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.11816636, z: 0.33333334}
@@ -279,6 +288,15 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.43333334
+        value: 8.378803
+        inSlope: -13.780886
+        outSlope: -13.780886
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
