@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2650626922375502586}
   - component: {fileID: 2650626922375502581}
   - component: {fileID: 2650626922375502580}
+  - component: {fileID: 2575278895319653781}
   m_Layer: 9
   m_Name: Chainsaw
   m_TagString: Untagged
@@ -94,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110a3e7c56d7ed4459a19f724294ed04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   wanderForce: 3
   maxSpeed: 3
 --- !u!61 &2650626922375502581
@@ -144,3 +144,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2575278895319653781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2650626922375502583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc617d9514b66994e8428fe273793a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos1: {x: 0, y: 0, z: 0}
+  pos2: {x: 0, y: 0, z: 0}
+  speed: 5
