@@ -45,7 +45,7 @@ public class DumbFukChainManager : MonoBehaviour
             killIndex = i;
             break;
         }
-
+        Debug.Log(killIndex);
         if (killIndex == -1)
         {
             return;
@@ -53,8 +53,12 @@ public class DumbFukChainManager : MonoBehaviour
 
         for (int i = killIndex; i < bunnyChain.Count; i++)
         {
-            RemoveFromChain();
+            enableBunny(i, false);
+            bunnyChain[i].GetComponent<Rigidbody2D>().mass = 0.001f;
         }
+
+        currentChainLength = killIndex;
+        SetLeader();
     }
 
     public void AddToChain(BunnyHealth health)
@@ -65,6 +69,8 @@ public class DumbFukChainManager : MonoBehaviour
         enableBunny(currentChainLength, true);
         bunnyChain[currentChainLength].GetComponent<BunnyCollisionDetection>().HealthLevel = health;
         bunnyChain[currentChainLength].GetComponent<BunnyCollisionDetection>().SetSkin();
+        bunnyChain[currentChainLength].GetComponent<Rigidbody2D>().mass = bunnyMass;
+        
         currentChainLength++;
         SetLeader();
     }
@@ -105,6 +111,7 @@ public class DumbFukChainManager : MonoBehaviour
         GameObject bunny = bunnyChain[index];
         MeshRenderer render = bunny.GetComponentInChildren<MeshRenderer>();
         render.enabled = state;
+        bunnyChain[index].GetComponent<Rigidbody2D>().mass = state ? bunnyMass : 0.001f;
 
     }
 }
