@@ -57,12 +57,14 @@ public class DumbFukChainManager : MonoBehaviour
         }
     }
 
-    public void AddToChain()
+    public void AddToChain(BunnyHealth health)
     {
         if (currentChainLength == bunnyChain.Count)
             return;
         
         enableBunny(currentChainLength, true);
+        bunnyChain[currentChainLength].GetComponent<BunnyCollisionDetection>().HealthLevel = health;
+        bunnyChain[currentChainLength].GetComponent<BunnyCollisionDetection>().SetSkin();
         currentChainLength++;
         SetLeader();
     }

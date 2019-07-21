@@ -23,5 +23,12 @@ public class ChainsawCollisionsDetection : MonoBehaviour
             Debug.Log("SAWED A BUNNY");
             col.gameObject.GetComponent<BunnyCollisionDetection>().Hurt();
         }
+
+        if (col.gameObject.layer == LayerMask.NameToLayer("Bunny"))
+        {
+           Debug.Log("SAWED AN NPC!"); 
+           col.gameObject.GetComponent<BunnyScript>().Hurt();
+        }
+        
     }
 }
