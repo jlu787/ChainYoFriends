@@ -18,11 +18,10 @@ public class ChainsawCollisionsDetection : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Chainsaw collided with bunny.");
         if (col.gameObject.layer == LayerMask.NameToLayer("Bunny"))
         {
             Debug.Log("SAWED A BUNNY");
-            Destroy(col.gameObject);
+            col.gameObject.GetComponent<BunnyCollisionDetection>().Hurt();
         }
     }
 }

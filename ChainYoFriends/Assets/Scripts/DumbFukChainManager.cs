@@ -23,7 +23,7 @@ public class DumbFukChainManager : MonoBehaviour
         {
             enableBunny(i, false);
         }
-        bunnyChain[currentChainLength - 1].GetComponent<BoxCollider2D>().enabled = true;
+        SetLeader();
     }
 
     void Update()
@@ -60,21 +60,31 @@ public class DumbFukChainManager : MonoBehaviour
     public void AddToChain()
     {
         enableBunny(currentChainLength, true);
-        BoxCollider2D box = bunnyChain[currentChainLength-1].GetComponent<BoxCollider2D>();
-        box.enabled = false;
-        BoxCollider2D box2 = bunnyChain[currentChainLength].GetComponent<BoxCollider2D>();
-        box2.enabled = true;
         currentChainLength++;
+        SetLeader();
     }
 
     public void RemoveFromChain()
     {
-        enableBunny(currentChainLength, false);
-        BoxCollider2D box2 = bunnyChain[currentChainLength].GetComponent<BoxCollider2D>();
-        box2.enabled = false;
-        BoxCollider2D box = bunnyChain[currentChainLength-1].GetComponent<BoxCollider2D>();
-        box.enabled = true;
+        enableBunny(currentChainLength - 1, false);
         currentChainLength--;
+        SetLeader();
+    }
+
+    private void SetLeader()
+    {
+        for (int i = 0; i < bunnyChain.Count; i++)
+        {
+            bunnyChain[i].tag = "Link";
+        }
+        
+
+        bunnyChain[currentChainLength - 1].tag = "Leader";
+
+        for (int i = currentChainLength; i < bunnyChain.Count; i++)
+        {
+            bunnyChain[i].layer = LayerMask.NameToLayer("Default");
+        }
     }
     
 

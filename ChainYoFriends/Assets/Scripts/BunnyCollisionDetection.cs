@@ -34,7 +34,11 @@ public class BunnyCollisionDetection : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Entered.");
-        if (col.gameObject.layer == LayerMask.NameToLayer("Bunny"))
+        if (!gameObject.CompareTag("Leader"))
+        {
+            return;
+        }
+        if (col.gameObject.layer == LayerMask.NameToLayer("Bunny") )
         {
             Destroy(col.gameObject);
             Debug.Log("caugh.");
