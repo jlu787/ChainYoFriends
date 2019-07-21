@@ -742,11 +742,6 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 0.7399998
       objectReference: {fileID: 0}
-    - target: {fileID: 7857756119517922579, guid: ec7ca6f83212946428cfa9136d74473c,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.7600001
-      objectReference: {fileID: 0}
     - target: {fileID: 7857756119537861789, guid: ec7ca6f83212946428cfa9136d74473c,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -821,6 +816,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7857756119517922579, guid: ec7ca6f83212946428cfa9136d74473c,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.7600001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec7ca6f83212946428cfa9136d74473c, type: 3}
@@ -1601,7 +1601,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1118769815}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1000696244}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StartScreen
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1118769815
@@ -1881,7 +1892,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1405427037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1000696244}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WinCondition
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1405427037

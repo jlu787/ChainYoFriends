@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManagerScript : MonoBehaviour
@@ -19,7 +20,10 @@ public class GameManagerScript : MonoBehaviour
     public GameObject gameEndPanel;
     public TextMeshProUGUI outcomeText;
 
-    
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 
     // Start is called before the first frame update
     void Start()
