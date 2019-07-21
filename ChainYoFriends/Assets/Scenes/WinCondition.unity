@@ -1024,6 +1024,7 @@ MonoBehaviour:
   playerOneDFCM: {fileID: 150096209}
   playerTwoDFCM: {fileID: 150096209}
   gameEndPanel: {fileID: 880577252}
+  outcomeText: {fileID: 202482463}
 --- !u!4 &1000696245
 Transform:
   m_ObjectHideFlags: 0
