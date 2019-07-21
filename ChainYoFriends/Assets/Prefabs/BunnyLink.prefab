@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8632296746822351518}
   - component: {fileID: 344191094016414247}
   - component: {fileID: 5320638358622729139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BunnyLink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8632296746822351489}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
