@@ -44,7 +44,7 @@ public class ChainsawSpawner : MonoBehaviour
     {
         Vector3 v3Pos1;
         Vector3 v3Pos2;
-        float randCheckLR = Random.Range(-10.0f, 10.0f);
+        float randCheckLR = Random.Range(0f, 1.0f);
         if (randCheckLR <= 0.5f)
         {
             v3Pos1 = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, Random.Range(0, 1.0f), 0));
