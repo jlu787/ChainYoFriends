@@ -13,7 +13,9 @@ public class BunnyCollisionDetection : MonoBehaviour
     {
         if (HealthLevel == BunnyHealth.DeadBunny)
         {
+            Debug.Log("Killing");
             _manager.Kill(gameObject);
+            return;
         }
 
         HealthLevel--;
